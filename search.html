@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Products</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 0;
+    }
+    .search-container {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 20px;
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+    #searchBox {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+      margin: 20px 0;
+    }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    .product {
+      background: #fff;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: 0.3s;
+    }
+    .product:hover {
+      transform: scale(1.05);
+    }
+    .product img {
+      width: 100%;
+      max-height: 150px;
+      object-fit: contain;
+      margin-bottom: 10px;
+    }
+    .product h4 {
+      margin: 10px 0;
+      color: #444;
+    }
+    .product p {
+      color: #007BFF;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="search-container">
+    <h2>Search Products</h2>
+    <input type="text" id="searchBox" placeholder="Search for products...">
+
+    <div class="products" id="productList">
+      <div class="product" data-name="Black T-Shirt">
+        <img src="assests/images/download1.jpg" alt="Black T-Shirt">
+        <h4> Black T-Shirt</h4>
+        <p>₹699</p>
+      </div>
+      <div class="product" data-name="White t-shirt">
+        <img src="assests/images/pd-1.jpg" alt="White t-shirt">
+        <h4>White t-shirt</h4>
+        <p>₹1200</p>
+      </div>
+      <div class="product" data-name="fashion">
+        <img src="assests/images/c-5.jpg" alt="fashion">
+        <h4>fashion</h4>
+        <p>₹800</p>
+      </div>
+      <div class="product" data-name="Pink t-shirt">
+        <img src="assests/images/pd-3.jpg" alt="Pink t-shirt">
+        <h4>Pink t-shirt</h4>
+        <p>₹700</p>
+      </div>
+      <div class="product" data-name="Kurti">
+        <img src="assests/images/c-4.jpg" alt="Kurti">
+        <h4> Kurti</h4>
+        <p>₹1500</p>
+      </div>
+      <div class="product" data-name="Personal">
+        <img src="assests/images/c-3.jpg" alt="Personal">
+        <h4>Personal</h4>
+        <p>₹1500</p>
+      </div>
+      <div class="product" data-name="Beauty">
+        <img src="assests/images/c-2.jpg" alt="Beauty">
+        <h4>Beauty</h4>
+        <p>₹1500</p>
+      </div>
+      <div class="product" data-name="Traditional">
+        <img src="assests/images/c-1.jpg" alt="Traditional">
+        <h4>Traditional</h4>
+        <p>₹1500</p>
+      </div>
+       <div class="product" data-name="Blue t-shirt">
+        <img src="assests/images/pd-2.jpg" alt="Blue t-shirt">
+        <h4>Blue t-shirt</h4>
+        <p>₹1500</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const searchBox = document.getElementById("searchBox");
+    const products = document.querySelectorAll(".product");
+
+    searchBox.addEventListener("keyup", function() {
+      let searchText = searchBox.value.toLowerCase();
+      products.forEach(product => {
+        let productName = product.getAttribute("data-name").toLowerCase();
+        if (productName.includes(searchText)) {
+          product.style.display = "block";
+        } else {
+          product.style.display = "none";
+        }
+      });
+    });
+  </script>
+</body>
+</html>
+
+
+
